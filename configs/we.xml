@@ -8,6 +8,12 @@
     <feature manual="selected" name="Grande"/>
     <feature manual="selected" name="Enorme"/>
     <feature automatic="selected" name="Texto"/>
+    <feature manual="selected" name="Alinhamento"/>
+    <feature manual="selected" name="Linha"/>
+    <feature automatic="selected" name="Estilo"/>
+    <feature manual="selected" name="Italico"/>
+    <feature manual="selected" name="Sublinhado"/>
+    <feature manual="selected" name="Negrito"/>
     <feature manual="selected" name="Paragrafo"/>
     <feature manual="selected" name="Caracteres"/>
 </configuration>

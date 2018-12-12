@@ -176,8 +176,57 @@ abstract class Main$$Enorme extends  Main$$Grande  {
 
 }
 
+/**
+ * TODO description
+ */
+abstract class Main$$Alinhamento extends  Main$$Enorme  {
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+		BotaoSimples a = new BotaoSimples ("Alinhamento");
+		a.action () ;
+	}
+}
 
-abstract class Main$$Paragrafo extends  Main$$Enorme  {
+/**
+ * TODO description
+ */
+abstract class Main$$Linha extends  Main$$Alinhamento  {
+	public void createWebHelpBar() {
+		linhas = new BotaoComposto("Linhas");
+		super.createWebHelpBar() ;
+	}
+}
+
+
+abstract class Main$$Italico extends  Main$$Linha  {
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+		BotaoSimples a = new BotaoSimples ("Italico");
+		a.action () ;
+	}
+}
+
+
+abstract class Main$$Sublinhado extends  Main$$Italico  {
+
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+		BotaoSimples a = new BotaoSimples ("Sublinhado");
+		a.action () ;
+	}
+}
+
+
+abstract class Main$$Negrito extends  Main$$Sublinhado  {
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+		BotaoSimples a = new BotaoSimples ("Negrito");
+		a.action () ;
+	}
+}
+
+
+abstract class Main$$Paragrafo extends  Main$$Negrito  {
 	public void createWebHelpBar() {
 		paragrafos = new BotaoComposto("Paragrafos");
 		super.createWebHelpBar() ;

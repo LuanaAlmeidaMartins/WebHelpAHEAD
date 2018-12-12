@@ -176,8 +176,57 @@ SoUrCe  Enorme "../features/Enorme/Main.jak";abstract class Main$$Enorme extends
 
 }
 
+SoUrCe  Alinhamento "../features/Alinhamento/Main.jak";/**
+ * TODO description
+ */
+abstract class Main$$Alinhamento extends  Main$$Enorme  {
+	public void createWebHelpBar() {
+		Super().createWebHelpBar() ;
+		BotaoSimples a = new BotaoSimples ("Alinhamento");
+		a.action () ;
+	}
+}
+
+SoUrCe  Linha "../features/Linha/Main.jak";/**
+ * TODO description
+ */
+abstract class Main$$Linha extends  Main$$Alinhamento  {
+	public void createWebHelpBar() {
+		linhas = new BotaoComposto("Linhas");
+		Super().createWebHelpBar() ;
+	}
+}
+
+SoUrCe  Italico "../features/Italico/Main.jak";
+abstract class Main$$Italico extends  Main$$Linha  {
+	public void createWebHelpBar() {
+		Super().createWebHelpBar() ;
+		BotaoSimples a = new BotaoSimples ("Italico");
+		a.action () ;
+	}
+}
+
+SoUrCe  Sublinhado "../features/Sublinhado/Main.jak";
+abstract class Main$$Sublinhado extends  Main$$Italico  {
+
+	public void createWebHelpBar() {
+		Super().createWebHelpBar() ;
+		BotaoSimples a = new BotaoSimples ("Sublinhado");
+		a.action () ;
+	}
+}
+
+SoUrCe  Negrito "../features/Negrito/Main.jak";
+abstract class Main$$Negrito extends  Main$$Sublinhado  {
+	public void createWebHelpBar() {
+		Super().createWebHelpBar() ;
+		BotaoSimples a = new BotaoSimples ("Negrito");
+		a.action () ;
+	}
+}
+
 SoUrCe  Paragrafo "../features/Paragrafo/Main.jak";
-abstract class Main$$Paragrafo extends  Main$$Enorme  {
+abstract class Main$$Paragrafo extends  Main$$Negrito  {
 	public void createWebHelpBar() {
 		paragrafos = new BotaoComposto("Paragrafos");
 		Super().createWebHelpBar() ;
