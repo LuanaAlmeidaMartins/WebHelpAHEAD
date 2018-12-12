@@ -1,0 +1,24 @@
+public refines class Main {
+	
+	public void createWebHelpBar() {
+		Super().createWebHelpBar() ;
+		
+		if(caracteres!=null) {
+			caracteres.opcao("Medio");
+			caracteres.actionButton() ;
+		}
+		if(paragrafos!=null) {
+			paragrafos.opcao("Medio");
+			paragrafos.actionButton() ;
+		}
+		if(linhas!=null) {
+			linhas.opcao("Medio");
+			linhas.actionButton() ;
+		}
+		if(fonte!=null) {
+			fonte.opcao("Medio");
+			fonte.actionButton() ;
+		}
+	}
+
+}

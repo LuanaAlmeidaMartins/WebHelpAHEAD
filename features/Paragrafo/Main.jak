@@ -1,0 +1,7 @@
+
+public refines class Main {
+	public void createWebHelpBar() {
+		paragrafos = new BotaoComposto("Paragrafos");
+		Super().createWebHelpBar() ;
+	}
+}

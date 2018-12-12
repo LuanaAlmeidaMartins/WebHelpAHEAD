@@ -1,0 +1,8 @@
+
+public refines class Main {
+	
+	public void createWebHelpBar() {
+		caracteres = new BotaoComposto("Caracteres");
+		Super().createWebHelpBar() ;
+	}
+}
