@@ -1,0 +1,9 @@
+/**
+ * TODO description
+ */
+public refines class Main {
+	public void createWebHelpBar() {
+		regua = new BotaoComposto("Regua");
+		Super().createWebHelpBar() ;
+	}
+}

@@ -22,6 +22,10 @@ public refines class Main {
 			fonte.opcao("Pequeno");
 			fonte.actionButton() ;
 		}
+		if(regua!=null) {
+			regua.opcao("Pequeno");
+			regua.actionButton() ;
+		}
 	}
 
 }

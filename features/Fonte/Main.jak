@@ -1,0 +1,10 @@
+/**
+ * TODO description
+ */
+public refines class Main {
+
+	public void createWebHelpBar() {
+		fonteColor = new BotaoColorPicker("Fonte");
+		Super().createWebHelpBar() ;
+	}
+}

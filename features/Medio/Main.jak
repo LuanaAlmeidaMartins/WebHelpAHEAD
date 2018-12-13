@@ -19,6 +19,10 @@ public refines class Main {
 			fonte.opcao("Medio");
 			fonte.actionButton() ;
 		}
+		if(regua!=null) {
+			regua.opcao("Medio");
+			regua.actionButton() ;
+		}
 	}
 
 }

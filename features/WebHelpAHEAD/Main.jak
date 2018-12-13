@@ -1,5 +1,6 @@
 
 import java.io.File;
+import javafx.geometry.Insets;
 
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -10,11 +11,16 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.layout.Pane;
+
+import javafx.scene.layout.StackPane;
 
 public class Main extends Application {
 
-	BotaoComposto linhas = null, caracteres = null, paragrafos = null, fonte =null;
-
+	BotaoComposto linhas = null, caracteres = null, paragrafos = null, fonte =null, regua = null;
+	BotaoColorPicker background = null, fonteColor=null, highlight=null, overlay=null;
+	
 	@Override
 	public void start (final Stage stage ) {
 		
@@ -28,10 +34,12 @@ public class Main extends Application {
 
 		//Create opcaoTamanho WebView
 		final WebView browser = new WebView();
-
+		browser.setStyle("fx-padding:100;");
+		
 		// Get WebEngine via WebView and load home page
 		final WebEngine webEngine = browser.getEngine();
 		webEngine.load(homePageUrl);
+		
 		
 		//When the website content is bigger than display area, the scroll pane is enabled
 		ScrollPane scrollPane = new ScrollPane();
@@ -40,16 +48,24 @@ public class Main extends Application {
 		//Create the navigation bar
 		//NavigationBar navigationBar = new NavigationBar(browser, homePageUrl);
 
+		Canvas overlay = new Canvas(1300,600);
+		overlay.setStyle("-fx-padding: 0, 0, 0, 0;");
+		
 		// Create the WebHelpDyslexia bar
-		WebHelpBar webHelpBar = new WebHelpBar(browser);
-		new Main().createWebHelpBar();
+		WebHelpBar webHelpBar = new WebHelpBar(browser, overlay);
+		 
+		StackPane stack = new StackPane();
+	    stack.getChildren().addAll(browser, overlay);
+	    stack.setMargin(browser, new Insets(12, 12, 10, 28));
+
+	    new Main().createWebHelpBar();
 
 		//Create the VBox, add the navigation, menu and webview to the VBox and
-		VBox root = new VBox(webHelpBar, browser);
+		VBox root = new VBox(webHelpBar, stack);
 		//navigationBar,
 		
 		//Create the Scene, add the Scene to the Stage and display the Stage
-		Scene scene = new Scene(root);
+		Scene scene = new Scene(root, 1600,900);
 		stage.setScene(scene);
 
 		stage.show();

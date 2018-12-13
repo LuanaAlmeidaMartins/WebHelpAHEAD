@@ -1,5 +1,6 @@
 
 import java.io.File;
+import javafx.geometry.Insets;
 
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -10,13 +11,18 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.layout.Pane;
+
+import javafx.scene.layout.StackPane;
 
 
 
 abstract class Main$$WebHelpAHEAD extends Application {
 
-	BotaoComposto linhas = null, caracteres = null, paragrafos = null, fonte =null;
-
+	BotaoComposto linhas = null, caracteres = null, paragrafos = null, fonte =null, regua = null;
+	BotaoColorPicker background = null, fonteColor=null, highlight=null, overlay=null;
+	
 	@Override
 	public void start (final Stage stage ) {
 		
@@ -30,10 +36,12 @@ abstract class Main$$WebHelpAHEAD extends Application {
 
 		//Create opcaoTamanho WebView
 		final WebView browser = new WebView();
-
+		browser.setStyle("fx-padding:100;");
+		
 		// Get WebEngine via WebView and load home page
 		final WebEngine webEngine = browser.getEngine();
 		webEngine.load(homePageUrl);
+		
 		
 		//When the website content is bigger than display area, the scroll pane is enabled
 		ScrollPane scrollPane = new ScrollPane();
@@ -42,16 +50,24 @@ abstract class Main$$WebHelpAHEAD extends Application {
 		//Create the navigation bar
 		//NavigationBar navigationBar = new NavigationBar(browser, homePageUrl);
 
+		Canvas overlay = new Canvas(1300,600);
+		overlay.setStyle("-fx-padding: 0, 0, 0, 0;");
+		
 		// Create the WebHelpDyslexia bar
-		WebHelpBar webHelpBar = new WebHelpBar(browser);
-		new Main().createWebHelpBar();
+		WebHelpBar webHelpBar = new WebHelpBar(browser, overlay);
+		 
+		StackPane stack = new StackPane();
+	    stack.getChildren().addAll(browser, overlay);
+	    stack.setMargin(browser, new Insets(12, 12, 10, 28));
+
+	    new Main().createWebHelpBar();
 
 		//Create the VBox, add the navigation, menu and webview to the VBox and
-		VBox root = new VBox(webHelpBar, browser);
+		VBox root = new VBox(webHelpBar, stack);
 		//navigationBar,
 		
 		//Create the Scene, add the Scene to the Stage and display the Stage
-		Scene scene = new Scene(root);
+		Scene scene = new Scene(root, 1600,900);
 		stage.setScene(scene);
 
 		stage.show();
@@ -67,10 +83,40 @@ abstract class Main$$WebHelpAHEAD extends Application {
 	}
 }
 
+
+abstract class Main$$Overlay extends  Main$$WebHelpAHEAD  {
+	public void createWebHelpBar() {
+		overlay = new BotaoColorPicker("Overlay");
+		super.createWebHelpBar() ;
+	}
+}
+
 /**
  * TODO description
  */
-abstract class Main$$Pequeno extends  Main$$WebHelpAHEAD  {
+abstract class Main$$Regua extends  Main$$Overlay  {
+	public void createWebHelpBar() {
+		regua = new BotaoComposto("Regua");
+		super.createWebHelpBar() ;
+	}
+}
+
+/**
+ * TODO description
+ */
+abstract class Main$$Background extends  Main$$Regua  {
+
+	public void createWebHelpBar() {
+		System.out.println("entrou no createBack");
+		background = new BotaoColorPicker("Background");
+		super.createWebHelpBar() ;
+	}
+}
+
+/**
+ * TODO description
+ */
+abstract class Main$$Pequeno extends  Main$$Background  {
 	
 	public void createWebHelpBar() {
 		super.createWebHelpBar() ;
@@ -90,6 +136,10 @@ abstract class Main$$Pequeno extends  Main$$WebHelpAHEAD  {
 		if(fonte!=null) {
 			fonte.opcao("Pequeno");
 			fonte.actionButton() ;
+		}
+		if(regua!=null) {
+			regua.opcao("Pequeno");
+			regua.actionButton() ;
 		}
 	}
 
@@ -116,61 +166,36 @@ abstract class Main$$Medio extends  Main$$Pequeno  {
 			fonte.opcao("Medio");
 			fonte.actionButton() ;
 		}
-	}
-
-}
-
-abstract class Main$$Grande extends  Main$$Medio  {
-	
-	public void createWebHelpBar() {
-		super.createWebHelpBar() ;
-		
-		if(caracteres!=null) {
-			caracteres.opcao("Grande");
-			caracteres.actionButton() ;
-		}
-		
-		if(paragrafos!=null) {
-			paragrafos.opcao("Grande");
-			paragrafos.actionButton() ;
-		}
-		
-		if(linhas!=null) {
-			linhas.opcao("Grande");
-			linhas.actionButton() ;
-		}
-		
-		if(fonte!=null) {
-			fonte.opcao("Grande");
-			fonte.actionButton() ;
+		if(regua!=null) {
+			regua.opcao("Medio");
+			regua.actionButton() ;
 		}
 	}
 
 }
 
-abstract class Main$$Enorme extends  Main$$Grande  {
+
+abstract class Main$$Cor extends  Main$$Medio  {
 	
 	public void createWebHelpBar() {
 		super.createWebHelpBar() ;
 		
-		if(caracteres!=null) {
-			caracteres.opcao("Enorme");
-			caracteres.actionButton() ;
+		if(background!=null) {
+			background.opcao("Cor");
+			background.actionButton();
 		}
 		
-		if(paragrafos!=null) {
-			paragrafos.opcao("Enorme");
-			paragrafos.actionButton() ;
+		if(fonteColor!=null) {
+			fonteColor.opcao("Cor");
+			fonteColor.actionButton();
 		}
-		
-		if(linhas!=null) {
-			linhas.opcao("Enorme");
-			linhas.actionButton() ;
+		if(highlight!=null) {
+			highlight.opcao("Cor");
+			highlight.actionButton();
 		}
-		
-		if(fonte!=null) {
-			fonte.opcao("Enorme");
-			fonte.actionButton() ;
+		if(overlay!=null) {
+			overlay.opcao("Cor");
+			overlay.actionButton();
 		}
 	}
 
@@ -179,18 +204,18 @@ abstract class Main$$Enorme extends  Main$$Grande  {
 /**
  * TODO description
  */
-abstract class Main$$Alinhamento extends  Main$$Enorme  {
+abstract class Main$$Fonte extends  Main$$Cor  {
+
 	public void createWebHelpBar() {
+		fonteColor = new BotaoColorPicker("Fonte");
 		super.createWebHelpBar() ;
-		BotaoSimples a = new BotaoSimples ("Alinhamento");
-		a.action () ;
 	}
 }
 
 /**
  * TODO description
  */
-abstract class Main$$Linha extends  Main$$Alinhamento  {
+abstract class Main$$Linha extends  Main$$Fonte  {
 	public void createWebHelpBar() {
 		linhas = new BotaoComposto("Linhas");
 		super.createWebHelpBar() ;
@@ -198,46 +223,10 @@ abstract class Main$$Linha extends  Main$$Alinhamento  {
 }
 
 
-abstract class Main$$Italico extends  Main$$Linha  {
-	public void createWebHelpBar() {
-		super.createWebHelpBar() ;
-		BotaoSimples a = new BotaoSimples ("Italico");
-		a.action () ;
-	}
-}
-
-
-abstract class Main$$Sublinhado extends  Main$$Italico  {
-
-	public void createWebHelpBar() {
-		super.createWebHelpBar() ;
-		BotaoSimples a = new BotaoSimples ("Sublinhado");
-		a.action () ;
-	}
-}
-
-
-abstract class Main$$Negrito extends  Main$$Sublinhado  {
+public class Main extends  Main$$Linha  {
 	public void createWebHelpBar() {
 		super.createWebHelpBar() ;
 		BotaoSimples a = new BotaoSimples ("Negrito");
 		a.action () ;
-	}
-}
-
-
-abstract class Main$$Paragrafo extends  Main$$Negrito  {
-	public void createWebHelpBar() {
-		paragrafos = new BotaoComposto("Paragrafos");
-		super.createWebHelpBar() ;
-	}
-}
-
-
-public class Main extends  Main$$Paragrafo  {
-	
-	public void createWebHelpBar() {
-		caracteres = new BotaoComposto("Caracteres");
-		super.createWebHelpBar() ;
 	}
 }

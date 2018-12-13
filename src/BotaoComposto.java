@@ -5,12 +5,15 @@ import org.w3c.dom.Document;
 
 import javafx.concurrent.Worker.State;
 import javafx.event.EventHandler;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.canvas.GraphicsContext;
 
 public class BotaoComposto {
 	
@@ -21,7 +24,6 @@ public class BotaoComposto {
 	public BotaoComposto(String a) {
 		statusRestricao = new StatusRestricao();
 		item = new ArrayList<>();
-		System.out.println("Botao composto "+ a);
 		botao = new SplitMenuButton();
 		botao.setId(a);
 
@@ -30,10 +32,6 @@ public class BotaoComposto {
 		botao.setGraphic(new ImageView(image));
 
 		WebHelpBar.hbox.getChildren().add(botao);
-	}
-	
-	public String getId() {
-		return botao.getId().toString();
 	}
 
 	public void opcao(String a) {
@@ -58,8 +56,14 @@ public class BotaoComposto {
 					@Override
 					public void handle(MouseEvent event) {
 						statusRestricao.setCharSpacing();
+						if(botao.getId().contains("Regua")) {
+							createRuler(statusRestricao.getCharSpacing(botao.getId()), 
+									statusRestricao.isCharSpacing());
+						}
+						else {
 						WebHelpBar.applyButtonStatus.setFontStyle(statusRestricao.getCharSpacing(botao.getId()),
 								statusRestricao.isCharSpacing());
+						}
 					}
 				});
 
@@ -67,13 +71,33 @@ public class BotaoComposto {
 					int j = i;
 					item.get(i).setOnAction(actionEvent -> {
 						statusRestricao.setOptionCharSpacing();
+						if(botao.getId().contains("Regua")) {
+							createRuler(statusRestricao.getCharSpacing(item.get(j).getId()), 
+									statusRestricao.isCharSpacing());
+						}
+						else {
 						WebHelpBar.applyButtonStatus.removeFontStyle(statusRestricao.getRemoveOption());
 						WebHelpBar.applyButtonStatus.setFontStyle(statusRestricao.getCharSpacing(item.get(j).getId()),
 								statusRestricao.isCharSpacing());
+						}
 					});
 				}
 			}
 		});
 	}
+	
+	public void createRuler(String numeroString, boolean actived) {
+	    GraphicsContext gc = WebHelpBar.overlay.getGraphicsContext2D();
+	    WebHelpBar.overlay.setOpacity(0.8);
+	    gc.setFill(Color.color(0.0, 0.0, 0.0));
+	    double num = Double.parseDouble(numeroString);
+	    if (actived == true) {
+	      gc.fillRect(0, -20, 1600, 700);
+	      gc.clearRect(0, 80, 1600, num);
+	    } else {
+	      gc.clearRect(0, -20, 1600, 700);
+	    }
+	    gc.fill();
+	  }
 
 }

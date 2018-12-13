@@ -74,6 +74,9 @@ public class ApplyButtonStatus {
 	}
 
 	public void setFontStyle(String applyStyle, Boolean status) {
+		if(applyStyle.contains("background")) {
+			setBackgroundStyle(applyStyle, status);
+		}
 		if (status) {
 			this.arrayOfGeneralStyle.add(applyStyle);
 			System.out.println("if " + this.arrayOfGeneralStyle + " " + status);
