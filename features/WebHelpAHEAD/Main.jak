@@ -17,10 +17,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 public class Main extends Application {
-
 	BotaoComposto linhas = null, caracteres = null, paragrafos = null, fonte =null, regua = null;
 	BotaoColorPicker background = null, fonteColor=null, highlight=null, overlay=null;
-	
+
 	@Override
 	public void start (final Stage stage ) {
 		
@@ -48,14 +47,14 @@ public class Main extends Application {
 		//Create the navigation bar
 		//NavigationBar navigationBar = new NavigationBar(browser, homePageUrl);
 
-		Canvas overlay = new Canvas(1300,600);
-		overlay.setStyle("-fx-padding: 0, 0, 0, 0;");
+		Canvas canvas = new Canvas(1300,600);
+		canvas.setStyle("-fx-padding: 0, 0, 0, 0;");
 		
 		// Create the WebHelpDyslexia bar
-		WebHelpBar webHelpBar = new WebHelpBar(browser, overlay);
+		WebHelpBar webHelpBar = new WebHelpBar(browser, canvas);
 		 
 		StackPane stack = new StackPane();
-	    stack.getChildren().addAll(browser, overlay);
+	    stack.getChildren().addAll(browser, canvas);
 	    stack.setMargin(browser, new Insets(12, 12, 10, 28));
 
 	    new Main().createWebHelpBar();
@@ -76,7 +75,6 @@ public class Main extends Application {
 	}
 
 	public void createWebHelpBar() {
-		int i =0;
-		System.out.println(i++);
+		
 	}
 }

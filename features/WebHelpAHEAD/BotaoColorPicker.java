@@ -16,7 +16,7 @@ import java.io.File;
 
 import org.w3c.dom.Document;
 
-public class BotaoColorPicker extends HBox implements Types {
+public class BotaoColorPicker implements Types {
 	private ColorPicker colorPicker;
 	private BotaoColorPickerStatus status;
 
@@ -24,7 +24,6 @@ public class BotaoColorPicker extends HBox implements Types {
 		System.out.println("nome do botao: " + nome);
 		colorPicker = new ColorPicker();
 		colorPicker.setId(nome);
-
 	}
 
 	public void opcao(String name) {

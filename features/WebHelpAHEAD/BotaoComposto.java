@@ -57,6 +57,7 @@ public class BotaoComposto {
 					public void handle(MouseEvent event) {
 						statusRestricao.setCharSpacing();
 						if(botao.getId().contains("Regua")) {
+							WebHelpBar.overlay.setVisible(true);
 							createRuler(statusRestricao.getCharSpacing(botao.getId()), 
 									statusRestricao.isCharSpacing());
 						}
@@ -72,6 +73,7 @@ public class BotaoComposto {
 					item.get(i).setOnAction(actionEvent -> {
 						statusRestricao.setOptionCharSpacing();
 						if(botao.getId().contains("Regua")) {
+							WebHelpBar.overlay.setVisible(true);
 							createRuler(statusRestricao.getCharSpacing(item.get(j).getId()), 
 									statusRestricao.isCharSpacing());
 						}

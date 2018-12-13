@@ -1,0 +1,10 @@
+/**
+ * TODO description
+ */
+public refines class Main {
+	public void createWebHelpBar() {
+		Super().createWebHelpBar();
+		BotaoSimples botao = new BotaoSimples("leitor");
+		botao.action();
+	}
+}

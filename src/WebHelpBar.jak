@@ -25,6 +25,10 @@ public class WebHelpBar extends HBox {
 		
 		WebHelpBar.webEngine = web.getEngine();
 		hbox = new HBox();
+		
+	//	createButton(WebView web1, Canvas overlay1);
+		
 		this.getChildren().add(hbox);
 	}
+	
 }
