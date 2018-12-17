@@ -5,6 +5,8 @@ public refines class Main {
 
 	public void createWebHelpBar() {
 		fonteColor = new ColorButton("Fonte");
+		fonteSize = new SizeButton("Tamanho");
+		fontFamily = new SizeButton("Fonte");
 		Super().createWebHelpBar() ;
 	}
 }

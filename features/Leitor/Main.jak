@@ -4,7 +4,7 @@
 public refines class Main {
 	public void createWebHelpBar() {
 		Super().createWebHelpBar();
-		BotaoSimples botao = new BotaoSimples("leitor");
+		SimpleButton botao = new SimpleButton("leitor");
 		botao.action();
 	}
 }

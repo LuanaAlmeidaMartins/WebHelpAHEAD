@@ -3,7 +3,8 @@
  */
 public refines class Main {
 	public void createWebHelpBar() {
-		regua = new BotaoComposto("Regua");
+		System.out.println("regua main");
+		regua = new SizeButton("Regua");
 		Super().createWebHelpBar() ;
 	}
 }

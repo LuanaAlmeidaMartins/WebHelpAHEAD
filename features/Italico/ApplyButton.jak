@@ -1,0 +1,10 @@
+
+public refines class ApplyButton {
+	public void simple() {
+		if(simpleStatus.getButtonID().equals("Italico")) {
+			WebHelpBar.applyButtonStatus.setFontStyle(simpleStatus.getStyle(),
+					simpleStatus.getStatus());
+		}
+		Super().simple();
+	}
+}

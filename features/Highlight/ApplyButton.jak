@@ -7,7 +7,7 @@ public refines class ApplyButton {
 		
 	if(status.getButtonID().equals("Highlight")) {
 		WebHelpBar.overlay.setVisible(false);
-		aplicarCor(new ColorConverter().converterColor(status.getColor()));
+		aplicarCor(new ConverterColorToString().converterColor(status.getColor()));
 		}
 		Super().foo() ;
 	}

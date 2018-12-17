@@ -15,30 +15,29 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.canvas.GraphicsContext;
 
-public class BotaoComposto {
+public class SizeButton {
 	
 	ArrayList<RadioMenuItem> item;
 	SplitMenuButton botao ;
-	StatusRestricao statusRestricao;
+	SizeButtonStatus status;
 
-	public BotaoComposto(String a) {
-		statusRestricao = new StatusRestricao();
+	public SizeButton(String featureName) {
+		status = new SizeButtonStatus(featureName);
 		item = new ArrayList<>();
 		botao = new SplitMenuButton();
-		botao.setId(a);
+		botao.setId(featureName);
 
-		File file = new File("icons/" + a + ".png");
+		File file = new File("icons/" + featureName + ".png");
 		Image image = new Image(file.toURI().toString(), 28, 28, false, false);
 		botao.setGraphic(new ImageView(image));
 
 		WebHelpBar.hbox.getChildren().add(botao);
 	}
 
-	public void opcao(String a) {
-		System.out.println("Botao composto subitem"+ a);
-		
-		RadioMenuItem aitem = new RadioMenuItem(a);
-		aitem.setId(botao.getId() + "." + a);
+	public void opcao(String subFeatureName) {
+		System.out.println(subFeatureName);
+		RadioMenuItem aitem = new RadioMenuItem(subFeatureName);
+		aitem.setId(botao.getId() + "." + subFeatureName);
 		item.add(aitem);
 
 		ToggleGroup charSpacingGroup = new ToggleGroup();
@@ -55,55 +54,20 @@ public class BotaoComposto {
 				botao.setOnMouseClicked(new EventHandler<MouseEvent>() {
 					@Override
 					public void handle(MouseEvent event) {
-						statusRestricao.setCharSpacing();
-						if(botao.getId().contains("Regua")) {
-							WebHelpBar.overlay.setVisible(true);
-							createRuler(statusRestricao.getCharSpacing(botao.getId()), 
-									statusRestricao.isCharSpacing());
-						}
-						else {
-						WebHelpBar.applyButtonStatus.setFontStyle(statusRestricao.getCharSpacing(botao.getId()),
-								statusRestricao.isCharSpacing());
-						}
+						status.setStatusMenu();
+						new ApplyButton(status).size();
 					}
 				});
 
 				for (int i = 0; i < item.size(); i++) {
 					int j = i;
 					item.get(i).setOnAction(actionEvent -> {
-						statusRestricao.setOptionCharSpacing();
-						if(botao.getId().contains("Regua")) {
-							WebHelpBar.overlay.setVisible(true);
-							createRuler(statusRestricao.getCharSpacing(item.get(j).getId()), 
-									statusRestricao.isCharSpacing());
-						}
-						else {
-						WebHelpBar.applyButtonStatus.removeFontStyle(statusRestricao.getRemoveOption());
-						WebHelpBar.applyButtonStatus.setFontStyle(statusRestricao.getCharSpacing(item.get(j).getId()),
-								statusRestricao.isCharSpacing());
-						}
+						status.setStatusSubMenu();
+						status.setSubButtonID(item.get(j).getId());
+						new ApplyButton(status).size();
 					});
 				}
 			}
 		});
-	}
-	
-	public void createRuler(String numeroString, boolean actived) {
-	    GraphicsContext gc = WebHelpBar.overlay.getGraphicsContext2D();
-	    WebHelpBar.overlay.setOpacity(0.8);
-	    gc.setFill(Color.color(0.0, 0.0, 0.0));
-	    double num = Double.parseDouble(numeroString);
-	    if (actived == true) {
-	      gc.fillRect(0, -20, 1600, 700);
-	      gc.clearRect(0, 80, 1600, num);
-	    } else {
-	      gc.clearRect(0, -20, 1600, 700);
-	    }
-	    gc.fill();
-	    as();
-	  }
-
-	public void as() {
-		
 	}
 }

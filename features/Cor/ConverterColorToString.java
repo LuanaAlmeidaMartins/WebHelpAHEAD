@@ -1,6 +1,6 @@
 import javafx.scene.paint.Color;
 
-public class ColorConverter {
+public class ConverterColorToString {
 	
 	public String converterColor(Color color) {
 		return colorChanelToHex(color.getRed()) + colorChanelToHex(color.getGreen()) 

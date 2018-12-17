@@ -23,16 +23,14 @@ public class ColorButton implements Types {
 	public ColorButton(String nome) {
 		colorPicker = new ColorPicker();
 		colorPicker.setId(nome);
-		
 		colorPicker.setPrefHeight(38);
 		colorPicker.setPrefWidth(68);
 		colorPicker.getStyleClass().addAll("color-picker", "split-button");
-
 		colorPicker.setStyle("-fx-background-image: url('/" + colorPicker.getId()
 				+ ".png'); -fx-background-size: 28 28; "
 				+ "-fx-background-position: 10px; -fx-background-repeat: no-repeat; "
-				+ "-fx-color-label-visible: false; -fx-color-rect-width: 0px; " + "-fx-color-rect-height: 0px;");
-
+				+ "-fx-color-label-visible: false; -fx-color-rect-width: 0px; " 
+				+ "-fx-color-rect-height: 0px;");
 		status = new ColorButtonStatus(Color.YELLOW, colorPicker.getId());
 		WebHelpBar.hbox.getChildren().add(colorPicker);
 	}
@@ -46,16 +44,13 @@ public class ColorButton implements Types {
 				colorPicker.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 					@Override
 					public void handle(MouseEvent e) {
-						
 						if (!e.getPickResult().toString().contains("arrow-button")) {
-							System.out.println("here hrere");
 							colorPicker.hide();
 							status.setStatusMenu();
 							new ApplyButton(status).foo();
 						}
 					}
 				});
-
 				colorPicker.setOnAction((ActionEvent t) -> {
 					status.setStatusSubMenu();
 					status.setColor(colorPicker.getValue());

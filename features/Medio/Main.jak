@@ -15,9 +15,9 @@ public refines class Main {
 			linhas.opcao("Medio");
 			linhas.actionButton() ;
 		}
-		if(fonte!=null) {
-			fonte.opcao("Medio");
-			fonte.actionButton() ;
+		if(fonteSize!=null) {
+			fonteSize.opcao("Medio");
+			fonteSize.actionButton() ;
 		}
 		if(regua!=null) {
 			regua.opcao("Medio");

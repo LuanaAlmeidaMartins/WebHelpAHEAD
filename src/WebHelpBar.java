@@ -5,8 +5,6 @@ import javafx.scene.web.WebView;
 
 import javafx.scene.canvas.Canvas;
 
-
-
 public class WebHelpBar extends HBox {
 	static HBox hbox;
 	static WebEngine webEngine;

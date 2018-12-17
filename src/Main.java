@@ -19,7 +19,7 @@ import javafx.scene.layout.StackPane;
 
 
 abstract class Main$$WebHelpAHEAD extends Application {
-	BotaoComposto linhas = null, caracteres = null, paragrafos = null, fonte =null, regua = null;
+	SizeButton linhas = null, caracteres = null, paragrafos = null, fonteSize =null, regua = null, fontFamily = null;
 	ColorButton background = null, fonteColor=null, highlight=null, overlay=null;
 
 	@Override
@@ -82,26 +82,7 @@ abstract class Main$$WebHelpAHEAD extends Application {
 }
 
 
-abstract class Main$$Overlay extends  Main$$WebHelpAHEAD  {
-	public void createWebHelpBar() {
-		overlay = new ColorButton("Overlay");
-		super.createWebHelpBar() ;
-	}
-}
-
-/**
- * TODO description
- */
-abstract class Main$$Background extends  Main$$Overlay  {
-
-	public void createWebHelpBar() {
-		background = new ColorButton("Background");
-		super.createWebHelpBar() ;
-	}
-}
-
-
-abstract class Main$$Cor extends  Main$$Background  {
+abstract class Main$$Cor extends  Main$$WebHelpAHEAD  {
 	public void createWebHelpBar() {
 		super.createWebHelpBar() ;
 		
@@ -126,10 +107,69 @@ abstract class Main$$Cor extends  Main$$Background  {
 /**
  * TODO description
  */
-public class Main extends  Main$$Cor  {
+abstract class Main$$Fonte extends  Main$$Cor  {
 
 	public void createWebHelpBar() {
 		fonteColor = new ColorButton("Fonte");
+		fonteSize = new SizeButton("Tamanho");
+		fontFamily = new SizeButton("Fonte");
 		super.createWebHelpBar() ;
 	}
+}
+
+/**
+ * TODO description
+ */
+abstract class Main$$OpenSans extends  Main$$Fonte  {
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+
+		if(fontFamily!=null) {
+			fontFamily.opcao("OpenSans");
+			fontFamily.actionButton() ;
+		}
+	}
+}
+
+/**
+ * TODO description
+ */
+abstract class Main$$ComicSans extends  Main$$OpenSans  {
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+
+		if(fontFamily!=null) {
+			fontFamily.opcao("ComicSans");
+			fontFamily.actionButton() ;
+		}
+	}
+}
+
+/**
+ * TODO description
+ */
+abstract class Main$$Georgia extends  Main$$ComicSans  {
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+
+		if(fontFamily!=null) {
+			fontFamily.opcao("Georgia");
+			fontFamily.actionButton() ;
+		}
+	}
+}
+
+/**
+ * TODO description
+ */
+public class Main extends  Main$$Georgia  {
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+		
+		if(fontFamily!=null) {
+			fontFamily.opcao("OpenDyslexic");
+			fontFamily.actionButton() ;
+		}
+	}
+
 }

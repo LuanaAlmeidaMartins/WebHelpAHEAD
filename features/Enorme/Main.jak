@@ -18,9 +18,9 @@ public refines class Main {
 			linhas.actionButton() ;
 		}
 		
-		if(fonte!=null) {
-			fonte.opcao("Enorme");
-			fonte.actionButton() ;
+		if(fonteSize!=null) {
+			fonteSize.opcao("Enorme");
+			fonteSize.actionButton() ;
 		}
 		
 		if(regua!=null) {

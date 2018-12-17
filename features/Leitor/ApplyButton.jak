@@ -1,0 +1,13 @@
+/**
+ * TODO description
+ */
+public refines class ApplyButton {
+
+	public void simple() {
+		if(simpleStatus.getButtonID().equals("leitor")) {
+			 WebHelpBar.overlay.setVisible(false);
+			 new Leitor();
+		}
+		Super().simple();
+	}
+}

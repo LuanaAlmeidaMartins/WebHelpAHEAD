@@ -17,7 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 public class Main extends Application {
-	BotaoComposto linhas = null, caracteres = null, paragrafos = null, fonte =null, regua = null;
+	SizeButton linhas = null, caracteres = null, paragrafos = null, fonteSize =null, regua = null, fontFamily = null;
 	ColorButton background = null, fonteColor=null, highlight=null, overlay=null;
 
 	@Override

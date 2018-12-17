@@ -1,10 +1,25 @@
 
 public class ApplyButton {
 	ColorButtonStatus status;
+	SizeButtonStatus sizeStatus;
+	SimpleButtonStatus simpleStatus;
+	
 	public ApplyButton(ColorButtonStatus status) {
 		this.status= status;
 	}
 	
+	public ApplyButton(SizeButtonStatus status) {
+		this.sizeStatus= status;
+	}
+	
+	public ApplyButton(SimpleButtonStatus status) {
+		this.simpleStatus = status;
+	}
+	
 	public void foo() {	
+	}
+	public void size() {	
+	}
+	public void simple() {
 	}
 }

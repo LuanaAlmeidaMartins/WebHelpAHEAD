@@ -1,7 +1,6 @@
 
 import javafx.scene.paint.Color;
 
-
 /**
  * TODO description
  */
@@ -11,7 +10,7 @@ public refines class ApplyButton {
 		if(status.getButtonID().equals("Background")) {
 			String tagStyle = "background: #";
 			System.out.println(status.isActive()+" -- ");
-			String colorName = new ColorConverter().converterColor(status.getColor());
+			String colorName = new ConverterColorToString().converterColor(status.getColor());
 			WebHelpBar.applyButtonStatus.removeFontStyle(tagStyle);
 			WebHelpBar.applyButtonStatus.setFontStyle(tagStyle + colorName + ";", 
 					status.isActive());

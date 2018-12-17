@@ -3,7 +3,7 @@
  */
 public refines class Main {
 	public void createWebHelpBar() {
-		linhas = new BotaoComposto("Linhas");
+		linhas = new SizeButton("Linhas");
 		Super().createWebHelpBar() ;
 	}
 }

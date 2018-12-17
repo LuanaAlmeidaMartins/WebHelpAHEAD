@@ -1,0 +1,14 @@
+/**
+ * TODO description
+ */
+public refines class Main {
+	public void createWebHelpBar() {
+		Super().createWebHelpBar() ;
+		
+		if(fontFamily!=null) {
+			fontFamily.opcao("OpenDyslexic");
+			fontFamily.actionButton() ;
+		}
+	}
+
+}

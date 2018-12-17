@@ -19,7 +19,7 @@ import javafx.scene.layout.StackPane;
 SoUrCe RooT WebHelpAHEAD "../features/WebHelpAHEAD/Main.jak";
 
 abstract class Main$$WebHelpAHEAD extends Application {
-	BotaoComposto linhas = null, caracteres = null, paragrafos = null, fonte =null, regua = null;
+	SizeButton linhas = null, caracteres = null, paragrafos = null, fonteSize =null, regua = null, fontFamily = null;
 	ColorButton background = null, fonteColor=null, highlight=null, overlay=null;
 
 	@Override
@@ -81,27 +81,8 @@ abstract class Main$$WebHelpAHEAD extends Application {
 	}
 }
 
-SoUrCe  Overlay "../features/Overlay/Main.jak";
-abstract class Main$$Overlay extends  Main$$WebHelpAHEAD  {
-	public void createWebHelpBar() {
-		overlay = new ColorButton("Overlay");
-		Super().createWebHelpBar() ;
-	}
-}
-
-SoUrCe  Background "../features/Background/Main.jak";/**
- * TODO description
- */
-abstract class Main$$Background extends  Main$$Overlay  {
-
-	public void createWebHelpBar() {
-		background = new ColorButton("Background");
-		Super().createWebHelpBar() ;
-	}
-}
-
 SoUrCe  Cor "../features/Cor/Main.jak";
-abstract class Main$$Cor extends  Main$$Background  {
+abstract class Main$$Cor extends  Main$$WebHelpAHEAD  {
 	public void createWebHelpBar() {
 		Super().createWebHelpBar() ;
 		
@@ -126,10 +107,69 @@ abstract class Main$$Cor extends  Main$$Background  {
 SoUrCe  Fonte "../features/Fonte/Main.jak";/**
  * TODO description
  */
-public class Main extends  Main$$Cor  {
+abstract class Main$$Fonte extends  Main$$Cor  {
 
 	public void createWebHelpBar() {
 		fonteColor = new ColorButton("Fonte");
+		fonteSize = new SizeButton("Tamanho");
+		fontFamily = new SizeButton("Fonte");
 		Super().createWebHelpBar() ;
 	}
+}
+
+SoUrCe  OpenSans "../features/OpenSans/Main.jak";/**
+ * TODO description
+ */
+abstract class Main$$OpenSans extends  Main$$Fonte  {
+	public void createWebHelpBar() {
+		Super().createWebHelpBar() ;
+
+		if(fontFamily!=null) {
+			fontFamily.opcao("OpenSans");
+			fontFamily.actionButton() ;
+		}
+	}
+}
+
+SoUrCe  ComicSans "../features/ComicSans/Main.jak";/**
+ * TODO description
+ */
+abstract class Main$$ComicSans extends  Main$$OpenSans  {
+	public void createWebHelpBar() {
+		Super().createWebHelpBar() ;
+
+		if(fontFamily!=null) {
+			fontFamily.opcao("ComicSans");
+			fontFamily.actionButton() ;
+		}
+	}
+}
+
+SoUrCe  Georgia "../features/Georgia/Main.jak";/**
+ * TODO description
+ */
+abstract class Main$$Georgia extends  Main$$ComicSans  {
+	public void createWebHelpBar() {
+		Super().createWebHelpBar() ;
+
+		if(fontFamily!=null) {
+			fontFamily.opcao("Georgia");
+			fontFamily.actionButton() ;
+		}
+	}
+}
+
+SoUrCe  OpenDyslexic "../features/OpenDyslexic/Main.jak";/**
+ * TODO description
+ */
+public class Main extends  Main$$Georgia  {
+	public void createWebHelpBar() {
+		Super().createWebHelpBar() ;
+		
+		if(fontFamily!=null) {
+			fontFamily.opcao("OpenDyslexic");
+			fontFamily.actionButton() ;
+		}
+	}
+
 }

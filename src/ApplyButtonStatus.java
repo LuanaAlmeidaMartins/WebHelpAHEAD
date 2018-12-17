@@ -27,11 +27,8 @@ public class ApplyButtonStatus {
 	}
 
 	public void applyStyle() {
-		String styleHeader = null;
-
 		body = (Element) doc.getElementsByTagName("body").item(0);
 		body.setAttribute("style", backgroundColor);
-
 		// passa em todas as tags
 		for (int g = 0; g < tags.size(); g++) {
 			for (int i = 0; i < doc.getElementsByTagName(tags.get(g)).getLength(); i++) {

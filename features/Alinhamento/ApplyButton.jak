@@ -1,0 +1,12 @@
+/**
+ * TODO description
+ */
+public refines class ApplyButton {
+	public void simple() {
+		if(simpleStatus.getButtonID().equals("Alinhamento")) {
+			WebHelpBar.applyButtonStatus.setFontStyle(simpleStatus.getStyle(),
+					simpleStatus.getStatus());
+		}
+		Super().simple();
+	}
+}

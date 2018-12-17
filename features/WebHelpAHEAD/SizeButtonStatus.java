@@ -3,28 +3,43 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public class StatusRestricao {
+public class SizeButtonStatus {
 
 	private boolean status = false;
-	private final String removeOption = "letter-spacing";
 	Properties property = new Properties();
+	private String buttonID, subButtonID;
 
-	public boolean isCharSpacing() {
-		return status;
+	public SizeButtonStatus(String id) {
+		this.buttonID = id;
 	}
-
-	public void setCharSpacing() {
+	
+	public void setSubButtonID(String suButtonID) {
+		this.subButtonID = suButtonID;
+	}
+	
+	public void setStatusMenu() {
 		this.status = !status;
 	}
 
-	public void setOptionCharSpacing() {
+	public void setStatusSubMenu() {
 		if (this.status == false) {
 			this.status = !status;
-			System.out.println("entrou if " + this.status);
 		}
 	}
+	
+	public boolean isActived() {
+		return status;
+	}
 
-	public String getCharSpacing(String type) {
+	public String getButtonID() {
+		return buttonID;
+	}
+
+	public String getSubButtonID() {
+		return subButtonID;
+	}
+
+	public String getStyle() {
 		try {
 			property.load(new FileInputStream(/*
 												 * System.getProperty("user.dir") + "/style.txt"
@@ -34,10 +49,6 @@ public class StatusRestricao {
 		} catch (IOException e) {
 			System.out.println("IO");
 		}
-		return property.getProperty(type);
-	}
-
-	public String getRemoveOption() {
-		return removeOption;
+		return property.getProperty(subButtonID);
 	}
 }

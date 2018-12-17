@@ -5,7 +5,7 @@
         <or mandatory="true" name="WebHelpAHEAD">
             <feature name="Leitor"/>
             <or abstract="true" name="Formatacao">
-                <and name="Tela">
+                <and abstract="true" name="Tela">
                     <feature name="Overlay"/>
                     <feature name="Regua"/>
                     <feature name="Background"/>
@@ -17,8 +17,13 @@
                     <feature name="Enorme"/>
                 </or>
                 <feature name="Cor"/>
-                <or abstract="true" name="Texto">
-                    <feature name="Fonte"/>
+                <and abstract="true" name="Texto">
+                    <and name="Fonte">
+                        <feature mandatory="true" name="OpenSans"/>
+                        <feature mandatory="true" name="ComicSans"/>
+                        <feature mandatory="true" name="Georgia"/>
+                        <feature mandatory="true" name="OpenDyslexic"/>
+                    </and>
                     <feature name="Alinhamento"/>
                     <feature name="Highlight"/>
                     <feature name="Linha"/>
@@ -29,7 +34,7 @@
                     </or>
                     <feature name="Paragrafo"/>
                     <feature name="Caracteres"/>
-                </or>
+                </and>
             </or>
             <feature name="Dicionario"/>
         </or>

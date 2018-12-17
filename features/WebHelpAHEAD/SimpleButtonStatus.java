@@ -4,9 +4,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public class StatusSemRestricao {
+public class SimpleButtonStatus {
 	private boolean align = false;
+	private String buttonID;
 	Properties property = new Properties();
+	
+	public SimpleButtonStatus(String id) {
+		this.buttonID = id;
+	}
 
 	public void setStatus() {
 		this.align = !align;
@@ -16,7 +21,11 @@ public class StatusSemRestricao {
 		return align;
 	}
 
-	public String getStyle(String id) {
+	public String getButtonID() {
+		return buttonID;
+	}
+	
+	public String getStyle() {
 		try {
 			property.load(new FileInputStream(/*
 												 * System.getProperty("user.dir") + "/style.txt"
@@ -26,6 +35,6 @@ public class StatusSemRestricao {
 		} catch (IOException e) {
 			System.out.println("IO");
 		}
-		return property.getProperty(id);
+		return property.getProperty(buttonID);
 	}
 }

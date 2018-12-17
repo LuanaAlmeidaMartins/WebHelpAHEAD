@@ -2,7 +2,7 @@
 public refines class Main {
 	public void createWebHelpBar() {
 		Super().createWebHelpBar() ;
-		BotaoSimples a = new BotaoSimples ("Italico");
+		SimpleButton a = new SimpleButton ("Italico");
 		a.action () ;
 	}
 }

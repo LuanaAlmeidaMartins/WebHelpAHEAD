@@ -3,7 +3,7 @@ public refines class Main {
 
 	public void createWebHelpBar() {
 		Super().createWebHelpBar() ;
-		BotaoSimples botao = new BotaoSimples("Sublinhado");
-	 botao.action();
+		SimpleButton botao = new SimpleButton("Sublinhado");
+		botao.action();
 	}
 }

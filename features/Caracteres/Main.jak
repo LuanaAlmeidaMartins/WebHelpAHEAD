@@ -2,7 +2,7 @@
 public refines class Main {
 	
 	public void createWebHelpBar() {
-		caracteres = new BotaoComposto("Caracteres");
+		caracteres = new SizeButton("Caracteres");
 		Super().createWebHelpBar() ;
 	}
 }
