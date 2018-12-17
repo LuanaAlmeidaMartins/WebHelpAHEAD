@@ -100,6 +100,10 @@ public class BotaoComposto {
 	      gc.clearRect(0, -20, 1600, 700);
 	    }
 	    gc.fill();
+	    as();
 	  }
 
+	public void as() {
+		
+	}
 }

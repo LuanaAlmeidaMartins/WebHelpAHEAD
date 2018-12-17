@@ -1,0 +1,10 @@
+
+public class ApplyButton {
+	ColorButtonStatus status;
+	public ApplyButton(ColorButtonStatus status) {
+		this.status= status;
+	}
+	
+	public void foo() {	
+	}
+}

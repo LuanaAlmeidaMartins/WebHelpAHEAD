@@ -9,14 +9,9 @@ public class ApplyButtonStatus {
 	private Document doc;
 	boolean fonteStatus = false;
 	boolean backgroundStatus = false;
-	// ArrayList<FontSize> sizeFont = new ArrayList<>();
 	Element element, body;
 	private String backgroundColor;
 
-	/**
-	 * @param doc
-	 *            the style is applied on document doc
-	 */
 	public ApplyButtonStatus(Document doc) {
 		Tags tags = new Tags();
 		this.tags = tags.getTagsName();
@@ -44,39 +39,9 @@ public class ApplyButtonStatus {
 				element.setAttribute("style", getFontStyle());
 			}
 		}
-
-		// somente cabe�alho
-		// for (int j = 0; j < sizeFont.size(); j++) {
-		// for (int i = 0; i < doc.getElementsByTagName(sizeFont
-		// .get(j).getTagName()).getLength(); i++) {
-		// if (fonteStatus) {
-		// styleHeader = getFontStyle() + " font-size: "
-		// + sizeFont.get(j).getSize();
-		// System.out.println("if "+ getFontStyle() + " font-size: "
-		// + sizeFont.get(j).getSize());
-		// body.setAttribute("style", backgroundColor);
-		// } else {
-		// styleHeader = getFontStyle();
-		// System.out.println("else" + getFontStyle());
-		// }
-		// element = (Element) doc.getElementsByTagName(
-		// sizeFont.get(j).getTagName()).item(i);
-		// for (int k = 0; k < element.getChildNodes().getLength(); k++) {
-		// element.setAttribute("style", styleHeader);
-		// if (!element.getChildNodes().item(k).getNodeName().contains("#")) {
-		// Element subElement;
-		// subElement = (Element) element.getChildNodes().item(k);
-		// subElement.setAttribute("style", styleHeader);
-		// }
-		// }
-		// }
-		// }
 	}
 
 	public void setFontStyle(String applyStyle, Boolean status) {
-		if(applyStyle.contains("background")) {
-			setBackgroundStyle(applyStyle, status);
-		}
 		if (status) {
 			this.arrayOfGeneralStyle.add(applyStyle);
 			System.out.println("if " + this.arrayOfGeneralStyle + " " + status);
@@ -86,12 +51,6 @@ public class ApplyButtonStatus {
 		applyStyle();
 	}
 
-	// public void setFontStyle(ArrayList<FontSize> sizeFont, boolean status) {
-	// fonteStatus = status;
-	// this.sizeFont = sizeFont;
-	// applyStyle();
-	// }
-
 	public void removeFontStyle(String removeString) {
 		for (int i = 0; i < arrayOfGeneralStyle.size(); i++) {
 			if ((arrayOfGeneralStyle.get(i).contains(removeString))
@@ -100,15 +59,5 @@ public class ApplyButtonStatus {
 				System.out.println("else " + this.arrayOfGeneralStyle);
 			}
 		}
-	}
-
-	public void setBackgroundStyle(String color, boolean status) {
-		this.backgroundStatus = status;
-		if (status) {
-			this.backgroundColor = color;
-		} else {
-			this.backgroundColor = "";
-		}
-		// applyStyle();
 	}
 }

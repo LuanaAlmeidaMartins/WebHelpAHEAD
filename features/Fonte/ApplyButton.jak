@@ -1,0 +1,16 @@
+/**
+ * TODO description
+ */
+public refines class ApplyButton {
+	public void foo() {
+		
+		if(status.getButtonID().equals("Fonte")) {
+			String tagStyle = "color: #";
+			String colorName = new ColorConverter().converterColor(status.getColor());
+			WebHelpBar.applyButtonStatus.removeFontStyle(tagStyle);
+			WebHelpBar.applyButtonStatus.setFontStyle(tagStyle + colorName + ";", 
+					status.isActive());
+		}
+		Super().foo() ;
+	}
+}

@@ -1,7 +1,7 @@
 
 public refines class Main {
 	public void createWebHelpBar() {
-		highlight = new BotaoColorPicker("Highlight");
+		highlight = new ColorButton("Highlight");
 		Super().createWebHelpBar() ;
 	}
 }

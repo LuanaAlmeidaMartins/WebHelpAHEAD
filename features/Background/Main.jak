@@ -4,8 +4,7 @@
 public refines class Main {
 
 	public void createWebHelpBar() {
-		System.out.println("entrou no createBack");
-		background = new BotaoColorPicker("Background");
+		background = new ColorButton("Background");
 		Super().createWebHelpBar() ;
 	}
 }

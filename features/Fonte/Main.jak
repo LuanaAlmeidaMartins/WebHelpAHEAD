@@ -4,7 +4,7 @@
 public refines class Main {
 
 	public void createWebHelpBar() {
-		fonteColor = new BotaoColorPicker("Fonte");
+		fonteColor = new ColorButton("Fonte");
 		Super().createWebHelpBar() ;
 	}
 }

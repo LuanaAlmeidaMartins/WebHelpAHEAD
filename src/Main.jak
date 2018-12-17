@@ -20,7 +20,7 @@ SoUrCe RooT WebHelpAHEAD "../features/WebHelpAHEAD/Main.jak";
 
 abstract class Main$$WebHelpAHEAD extends Application {
 	BotaoComposto linhas = null, caracteres = null, paragrafos = null, fonte =null, regua = null;
-	BotaoColorPicker background = null, fonteColor=null, highlight=null, overlay=null;
+	ColorButton background = null, fonteColor=null, highlight=null, overlay=null;
 
 	@Override
 	public void start (final Stage stage ) {
@@ -81,13 +81,55 @@ abstract class Main$$WebHelpAHEAD extends Application {
 	}
 }
 
-SoUrCe  Leitor "../features/Leitor/Main.jak";/**
+SoUrCe  Overlay "../features/Overlay/Main.jak";
+abstract class Main$$Overlay extends  Main$$WebHelpAHEAD  {
+	public void createWebHelpBar() {
+		overlay = new ColorButton("Overlay");
+		Super().createWebHelpBar() ;
+	}
+}
+
+SoUrCe  Background "../features/Background/Main.jak";/**
  * TODO description
  */
-public class Main extends  Main$$WebHelpAHEAD  {
+abstract class Main$$Background extends  Main$$Overlay  {
+
 	public void createWebHelpBar() {
-		Super().createWebHelpBar();
-		BotaoSimples botao = new BotaoSimples("leitor");
-		botao.action();
+		background = new ColorButton("Background");
+		Super().createWebHelpBar() ;
+	}
+}
+
+SoUrCe  Cor "../features/Cor/Main.jak";
+abstract class Main$$Cor extends  Main$$Background  {
+	public void createWebHelpBar() {
+		Super().createWebHelpBar() ;
+		
+		if(background!=null) {
+			background.actionButton();
+		}
+		
+		if(fonteColor!=null) {
+			
+			fonteColor.actionButton();
+		}
+		if(highlight!=null) {
+			highlight.actionButton();
+		}
+		if(overlay!=null) {
+			overlay.actionButton();
+		}
+	}
+
+}
+
+SoUrCe  Fonte "../features/Fonte/Main.jak";/**
+ * TODO description
+ */
+public class Main extends  Main$$Cor  {
+
+	public void createWebHelpBar() {
+		fonteColor = new ColorButton("Fonte");
+		Super().createWebHelpBar() ;
 	}
 }

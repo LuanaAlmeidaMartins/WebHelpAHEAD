@@ -1,0 +1,24 @@
+
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+
+public refines class ApplyButton {
+	public void foo() {
+		if(status.getButtonID().equals("Overlay")) {
+			WebHelpBar.overlay.setVisible(true);
+			GraphicsContext gc = WebHelpBar.overlay.getGraphicsContext2D();
+			WebHelpBar.overlay.setOpacity(0.5);
+			    if (status.isActive() == true) {
+			      gc.setFill(Color.color(status.getColor().getRed(), 
+			    		  status.getColor().getGreen(), 
+			    		  status.getColor().getBlue()));
+			      gc.fillRect(0, -20, 1600, 700);
+			    } 
+			    else {
+			      gc.clearRect(0, -20, 1600, 700);
+			    }
+			    gc.fill();
+		}
+		Super().foo() ;
+	}
+}

@@ -4,9 +4,6 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.layout.Pane;
-
-import javafx.scene.layout.StackPane;
 
 
 
@@ -17,7 +14,7 @@ public class WebHelpBar extends HBox {
 	static Canvas overlay;
 
 	public WebHelpBar(WebView web, Canvas overlay) {
-		this.overlay = overlay;
+		WebHelpBar.overlay = overlay;
 		this.setSpacing(2);
 		this.setStyle("-fx-padding: 0, 0, 0, 0;");
 		
@@ -25,8 +22,6 @@ public class WebHelpBar extends HBox {
 		
 		WebHelpBar.webEngine = web.getEngine();
 		hbox = new HBox();
-		
-	//	createButton(WebView web1, Canvas overlay1);
 		
 		this.getChildren().add(hbox);
 	}
