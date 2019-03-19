@@ -1,0 +1,18 @@
+
+import javafx.scene.paint.Color;
+public refines class ApplySizeButton {
+	
+	public void size() {
+		if(sizeStatus.getButtonID().equals("Tamanho")) {
+			WebHelpBar.applyButtonStatus.removeFontStyle("font-size: ");
+			WebHelpBar.applyButtonStatus.setFontStyle("font-size: "+sizeStatus.getStyle(),
+					sizeStatus.isActived());
+		}
+		if(sizeStatus.getButtonID().equals("Fonte")) {
+			WebHelpBar.applyButtonStatus.removeFontStyle("font-family: ");
+			WebHelpBar.applyButtonStatus.setFontStyle(sizeStatus.getStyle(),
+					sizeStatus.isActived());
+		}
+		Super().size();
+	}
+}

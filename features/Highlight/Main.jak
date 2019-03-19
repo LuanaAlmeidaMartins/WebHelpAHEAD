@@ -1,7 +1,8 @@
-
 public refines class Main {
+	
 	public void createWebHelpBar() {
 		highlight = new ColorButton("Highlight");
+		highlight.actionButton();
 		Super().createWebHelpBar() ;
 	}
 }

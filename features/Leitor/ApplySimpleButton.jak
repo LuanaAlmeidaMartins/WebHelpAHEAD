@@ -1,0 +1,10 @@
+public refines class ApplySimpleButton {
+
+	public void simple() {
+		if(simpleStatus.getButtonID().equals("Leitor")) {
+			 WebHelpBar.overlay.setVisible(false);
+			 new Synth();
+		}
+		Super().simple();
+	}
+}

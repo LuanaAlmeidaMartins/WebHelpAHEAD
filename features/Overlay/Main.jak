@@ -1,7 +1,8 @@
-
 public refines class Main {
+	
 	public void createWebHelpBar() {
 		overlay = new ColorButton("Overlay");
+		overlay.actionButton();
 		Super().createWebHelpBar() ;
 	}
 }

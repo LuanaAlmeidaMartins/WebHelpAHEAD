@@ -1,0 +1,6 @@
+public refines class Main {
+		
+	SizeButton caracteres = null, regua = null, paragrafos = null;
+	SizeButton  linhas = null, fonteSize =null, fontFamily = null;
+
+}

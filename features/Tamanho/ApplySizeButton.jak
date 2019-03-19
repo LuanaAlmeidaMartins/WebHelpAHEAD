@@ -1,0 +1,11 @@
+public class ApplySizeButton {
+	SizeButtonStatus sizeStatus;
+
+	public ApplySizeButton(SizeButtonStatus status) {
+		this.sizeStatus= status;
+	}
+	
+	public void size() {	
+	}
+
+}

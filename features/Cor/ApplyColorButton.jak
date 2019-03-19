@@ -1,0 +1,11 @@
+public class ApplyColorButton {
+	ColorButtonStatus status;
+	
+	public ApplyColorButton(ColorButtonStatus status) {
+		this.status= status;
+	}
+	
+	public void foo() {	
+	}
+	
+}

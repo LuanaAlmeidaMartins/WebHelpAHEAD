@@ -2,22 +2,21 @@
 <featureModel>
     <properties/>
     <struct>
-        <or mandatory="true" name="WebHelpAHEAD">
-            <feature name="Leitor"/>
+        <or mandatory="true" name="WebHelp">
             <or abstract="true" name="Formatacao">
+                <and name="Tamanho">
+                    <feature name="Pequeno"/>
+                    <feature name="Medio"/>
+                    <feature name="Grande"/>
+                    <feature name="Enorme"/>
+                </and>
+                <feature name="Cor"/>
                 <and abstract="true" name="Tela">
                     <feature name="Overlay"/>
                     <feature name="Regua"/>
                     <feature name="Background"/>
                 </and>
-                <or abstract="true" name="Tamanho">
-                    <feature name="Pequeno"/>
-                    <feature name="Medio"/>
-                    <feature name="Grande"/>
-                    <feature name="Enorme"/>
-                </or>
-                <feature name="Cor"/>
-                <and abstract="true" name="Texto">
+                <and name="Texto">
                     <and name="Fonte">
                         <feature mandatory="true" name="OpenSans"/>
                         <feature mandatory="true" name="ComicSans"/>
@@ -26,17 +25,17 @@
                     </and>
                     <feature name="Alinhamento"/>
                     <feature name="Highlight"/>
-                    <feature name="Linha"/>
+                    <feature name="Linhas"/>
                     <or abstract="true" name="Estilo">
                         <feature name="Italico"/>
                         <feature name="Sublinhado"/>
                         <feature name="Negrito"/>
                     </or>
-                    <feature name="Paragrafo"/>
+                    <feature name="Paragrafos"/>
                     <feature name="Caracteres"/>
                 </and>
             </or>
-            <feature name="Dicionario"/>
+            <feature name="Leitor"/>
         </or>
     </struct>
     <constraints>
@@ -46,8 +45,8 @@
                 <disj>
                     <var>Caracteres</var>
                     <disj>
-                        <var>Paragrafo</var>
-                        <var>Linha</var>
+                        <var>Paragrafos</var>
+                        <var>Linhas</var>
                     </disj>
                 </disj>
             </imp>
@@ -55,9 +54,9 @@
         <rule>
             <imp>
                 <disj>
-                    <var>Linha</var>
+                    <var>Linhas</var>
                     <disj>
-                        <var>Paragrafo</var>
+                        <var>Paragrafos</var>
                         <var>Caracteres</var>
                     </disj>
                 </disj>

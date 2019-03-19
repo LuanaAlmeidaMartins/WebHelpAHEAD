@@ -1,0 +1,18 @@
+public refines class ApplyColorButton {
+
+	public void foo() {
+		
+	if(status.getButtonID().equals("Highlight")) {
+		WebHelpBar.overlay.setVisible(false);
+		aplicarCor(new ConverterColorToString().converterColor(status.getColor()));
+		}
+		Super().foo() ;
+	}
+	
+	private void aplicarCor(String string) {
+		WebHelpBar.webEngine.executeScript("var selection = window.getSelection();"
+				+ "var range = selection.getRangeAt(0);" + "var newNode = document.createElement(\"span\");"
+				+ "newNode.setAttribute(\"style\", \"background-color: #" + string + ";\");"
+				+ "range.surroundContents(newNode); ");
+	}
+}

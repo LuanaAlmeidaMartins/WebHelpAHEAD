@@ -12,16 +12,14 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.layout.Pane;
 
 import javafx.scene.layout.StackPane;
 
 
 
-abstract class Main$$WebHelpAHEAD extends Application {
-	SizeButton linhas = null, caracteres = null, paragrafos = null, fonteSize =null, regua = null, fontFamily = null;
-	ColorButton background = null, fonteColor=null, highlight=null, overlay=null;
-
+abstract class Main$$WebHelp extends Application {
+	
+	@SuppressWarnings("static-access")
 	@Override
 	public void start (final Stage stage ) {
 		
@@ -81,45 +79,184 @@ abstract class Main$$WebHelpAHEAD extends Application {
 	}
 }
 
+abstract class Main$$Tamanho extends  Main$$WebHelp  {
+		
+	SizeButton caracteres = null, regua = null, paragrafos = null;
+	SizeButton  linhas = null, fonteSize =null, fontFamily = null;
 
-abstract class Main$$Cor extends  Main$$WebHelpAHEAD  {
+}
+
+abstract class Main$$Pequeno extends  Main$$Tamanho  {
+	
 	public void createWebHelpBar() {
 		super.createWebHelpBar() ;
 		
-		if(background!=null) {
-			background.actionButton();
+		if(caracteres!=null) {
+			caracteres.opcao("Pequeno");
+			caracteres.actionButton() ;
 		}
-		
-		if(fonteColor!=null) {
-			
-			fonteColor.actionButton();
+		if(paragrafos!=null) {
+			paragrafos.opcao("Pequeno");
+			paragrafos.actionButton() ;
 		}
-		if(highlight!=null) {
-			highlight.actionButton();
+		if(linhas!=null) {
+			linhas.opcao("Pequeno");
+			linhas.actionButton() ;
 		}
-		if(overlay!=null) {
-			overlay.actionButton();
+		if(fonteSize!=null) {
+			fonteSize.opcao("Pequeno");
+			fonteSize.actionButton() ;
+		}
+		if(regua!=null) {
+			regua.opcao("Pequeno");
+			regua.actionButton() ;
 		}
 	}
 
 }
 
-/**
- * TODO description
- */
-abstract class Main$$Fonte extends  Main$$Cor  {
+abstract class Main$$Medio extends  Main$$Pequeno  {
+	
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+		
+		if(caracteres!=null) {
+			caracteres.opcao("Medio");
+			caracteres.actionButton() ;
+		}
+		if(paragrafos!=null) {
+			paragrafos.opcao("Medio");
+			paragrafos.actionButton() ;
+		}
+		if(linhas!=null) {
+			linhas.opcao("Medio");
+			linhas.actionButton() ;
+		}
+		if(fonteSize!=null) {
+			fonteSize.opcao("Medio");
+			fonteSize.actionButton() ;
+		}
+		if(regua!=null) {
+			regua.opcao("Medio");
+			regua.actionButton() ;
+		}
+	}
 
+}
+
+abstract class Main$$Grande extends  Main$$Medio  {
+	
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+		
+		if(caracteres!=null) {
+			caracteres.opcao("Grande");
+			caracteres.actionButton() ;
+		}
+		
+		if(paragrafos!=null) {
+			paragrafos.opcao("Grande");
+			paragrafos.actionButton() ;
+		}
+		
+		if(linhas!=null) {
+			linhas.opcao("Grande");
+			linhas.actionButton() ;
+		}
+		
+		if(fonteSize!=null) {
+			fonteSize.opcao("Grande");
+			fonteSize.actionButton() ;
+		}
+		if(regua!=null) {
+			regua.opcao("Grande");
+			regua.actionButton() ;
+		}
+	}
+
+}
+
+abstract class Main$$Enorme extends  Main$$Grande  {
+	
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+		
+		if(caracteres!=null) {
+			caracteres.opcao("Enorme");
+			caracteres.actionButton() ;
+		}
+		
+		if(paragrafos!=null) {
+			paragrafos.opcao("Enorme");
+			paragrafos.actionButton() ;
+		}
+		
+		if(linhas!=null) {
+			linhas.opcao("Enorme");
+			linhas.actionButton() ;
+		}
+		
+		if(fonteSize!=null) {
+			fonteSize.opcao("Enorme");
+			fonteSize.actionButton() ;
+		}
+		
+		if(regua!=null) {
+			regua.opcao("Enorme");
+			regua.actionButton() ;
+		}
+	}
+
+}
+
+abstract class Main$$Cor extends  Main$$Enorme  {
+	
+	ColorButton background = null, fonteColor=null, highlight=null, overlay = null;
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+	}
+
+}
+
+abstract class Main$$Overlay extends  Main$$Cor  {
+	
+	public void createWebHelpBar() {
+		overlay = new ColorButton("Overlay");
+		overlay.actionButton();
+		super.createWebHelpBar() ;
+	}
+}
+
+abstract class Main$$Regua extends  Main$$Overlay  {
+	
+	public void createWebHelpBar() {
+		System.out.println("regua main");
+		regua = new SizeButton("Regua");
+		super.createWebHelpBar() ;
+	}
+}
+
+abstract class Main$$Background extends  Main$$Regua  {
+	
+	public void createWebHelpBar() {
+		background = new ColorButton("Background");
+		background.actionButton();
+		super.createWebHelpBar() ;
+	}
+}
+
+abstract class Main$$Fonte extends  Main$$Background  {
+	
 	public void createWebHelpBar() {
 		fonteColor = new ColorButton("Fonte");
+		fonteColor.actionButton();
+		
 		fonteSize = new SizeButton("Tamanho");
 		fontFamily = new SizeButton("Fonte");
 		super.createWebHelpBar() ;
 	}
 }
 
-/**
- * TODO description
- */
 abstract class Main$$OpenSans extends  Main$$Fonte  {
 	public void createWebHelpBar() {
 		super.createWebHelpBar() ;
@@ -131,9 +268,6 @@ abstract class Main$$OpenSans extends  Main$$Fonte  {
 	}
 }
 
-/**
- * TODO description
- */
 abstract class Main$$ComicSans extends  Main$$OpenSans  {
 	public void createWebHelpBar() {
 		super.createWebHelpBar() ;
@@ -145,9 +279,6 @@ abstract class Main$$ComicSans extends  Main$$OpenSans  {
 	}
 }
 
-/**
- * TODO description
- */
 abstract class Main$$Georgia extends  Main$$ComicSans  {
 	public void createWebHelpBar() {
 		super.createWebHelpBar() ;
@@ -159,10 +290,7 @@ abstract class Main$$Georgia extends  Main$$ComicSans  {
 	}
 }
 
-/**
- * TODO description
- */
-public class Main extends  Main$$Georgia  {
+abstract class Main$$OpenDyslexic extends  Main$$Georgia  {
 	public void createWebHelpBar() {
 		super.createWebHelpBar() ;
 		
@@ -172,4 +300,80 @@ public class Main extends  Main$$Georgia  {
 		}
 	}
 
+}
+
+abstract class Main$$Alinhamento extends  Main$$OpenDyslexic  {
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+		SimpleButton a = new SimpleButton ("Alinhamento");
+		a.action () ;
+	}
+}
+
+abstract class Main$$Highlight extends  Main$$Alinhamento  {
+	
+	public void createWebHelpBar() {
+		highlight = new ColorButton("Highlight");
+		highlight.actionButton();
+		super.createWebHelpBar() ;
+	}
+}
+
+abstract class Main$$Linhas extends  Main$$Highlight  {
+	
+	public void createWebHelpBar() {
+		linhas = new SizeButton("Linhas");
+		super.createWebHelpBar() ;
+	}
+}
+
+
+abstract class Main$$Italico extends  Main$$Linhas  {
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+		SimpleButton a = new SimpleButton ("Italico");
+		a.action () ;
+	}
+}
+
+abstract class Main$$Sublinhado extends  Main$$Italico  {
+
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+		SimpleButton botao = new SimpleButton("Sublinhado");
+		botao.action();
+	}
+}
+
+abstract class Main$$Negrito extends  Main$$Sublinhado  {
+	public void createWebHelpBar() {
+		super.createWebHelpBar() ;
+		SimpleButton botao = new SimpleButton("Negrito");
+		botao.action();
+	}
+}
+
+
+abstract class Main$$Paragrafos extends  Main$$Negrito  {
+	
+	public void createWebHelpBar() {
+		paragrafos = new SizeButton("Paragrafos");
+		super.createWebHelpBar() ;
+	}
+}
+
+abstract class Main$$Caracteres extends  Main$$Paragrafos  {
+	
+	public void createWebHelpBar() {
+		caracteres = new SizeButton("Caracteres");
+		super.createWebHelpBar() ;
+	}
+}
+
+public class Main extends  Main$$Caracteres  {
+	public void createWebHelpBar() {
+		super.createWebHelpBar();
+		SimpleButton botao = new SimpleButton("leitor");
+		botao.action();
+	}
 }

@@ -1,0 +1,10 @@
+public class ApplySimpleButton {
+	SimpleButtonStatus simpleStatus;
+	
+	public ApplySimpleButton(SimpleButtonStatus status) {
+		this.simpleStatus = status;
+	}
+
+	public void simple() {
+	}
+}

@@ -1,0 +1,8 @@
+
+public refines class Main {
+	
+	public void createWebHelpBar() {
+		paragrafos = new SizeButton("Paragrafos");
+		Super().createWebHelpBar() ;
+	}
+}

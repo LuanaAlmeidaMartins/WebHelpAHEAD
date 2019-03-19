@@ -1,9 +1,0 @@
-/**
- * TODO description
- */
-public refines class Main {
-	public void createWebHelpBar() {
-		linhas = new SizeButton("Linhas");
-		Super().createWebHelpBar() ;
-	}
-}

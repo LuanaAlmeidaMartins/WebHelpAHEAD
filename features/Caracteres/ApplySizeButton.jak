@@ -1,0 +1,10 @@
+public refines class ApplySizeButton {
+	public void size() {
+		if(sizeStatus.getButtonID().equals("Caracteres")) {
+			WebHelpBar.applyButtonStatus.removeFontStyle("letter-spacing");
+			WebHelpBar.applyButtonStatus.setFontStyle(sizeStatus.getStyle(),
+					sizeStatus.isActived());
+		}
+		Super().size();
+	}
+}

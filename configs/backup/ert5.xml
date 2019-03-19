@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <feature automatic="selected" name="WebHelp"/>
+    <feature automatic="selected" manual="selected" name="Formatacao"/>
+    <feature automatic="selected" manual="selected" name="Tamanho"/>
+    <feature manual="selected" name="Pequeno"/>
+    <feature manual="selected" name="Grande"/>
+    <feature manual="selected" name="Enorme"/>
+    <feature automatic="selected" name="Texto"/>
+    <feature manual="selected" name="Linhas"/>
+</configuration>

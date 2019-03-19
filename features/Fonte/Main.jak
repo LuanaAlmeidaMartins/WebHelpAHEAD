@@ -1,10 +1,9 @@
-/**
- * TODO description
- */
 public refines class Main {
-
+	
 	public void createWebHelpBar() {
 		fonteColor = new ColorButton("Fonte");
+		fonteColor.actionButton();
+		
 		fonteSize = new SizeButton("Tamanho");
 		fontFamily = new SizeButton("Fonte");
 		Super().createWebHelpBar() ;

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <feature automatic="selected" name="WebHelp"/>
+    <feature automatic="selected" name="Formatacao"/>
+    <feature automatic="selected" manual="selected" name="Tamanho"/>
+    <feature manual="selected" name="Pequeno"/>
+    <feature manual="selected" name="Medio"/>
+    <feature manual="selected" name="Grande"/>
+    <feature manual="selected" name="Enorme"/>
+    <feature automatic="selected" name="Texto"/>
+    <feature manual="selected" name="Fonte"/>
+    <feature automatic="selected" name="OpenSans"/>
+    <feature automatic="selected" name="ComicSans"/>
+    <feature automatic="selected" name="Georgia"/>
+    <feature automatic="selected" name="OpenDyslexic"/>
+    <feature manual="selected" name="Linhas"/>
+</configuration>

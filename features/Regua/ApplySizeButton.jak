@@ -1,0 +1,25 @@
+
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+
+public refines class ApplySizeButton {
+	
+	public void size() {
+		if(sizeStatus.getButtonID().equals("Regua")) {
+			WebHelpBar.overlay.setVisible(true);
+			GraphicsContext gc = WebHelpBar.overlay.getGraphicsContext2D();
+		    WebHelpBar.overlay.setOpacity(0.8);
+		    gc.setFill(Color.color(0.0, 0.0, 0.0));
+		    System.out.println("Adsd "+sizeStatus.getStyle());
+		    double num = Double.parseDouble(sizeStatus.getStyle());
+		    if (sizeStatus.isActived() == true) {
+			      gc.fillRect(0, -20, 1600, 700);
+			      gc.clearRect(0, 80, 1600, num);
+			    } else {
+			      gc.clearRect(0, -20, 1600, 700);
+			    }
+			    gc.fill();
+		}
+		Super().size() ;
+	}
+}

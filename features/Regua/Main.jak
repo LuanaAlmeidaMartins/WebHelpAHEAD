@@ -1,7 +1,5 @@
-/**
- * TODO description
- */
 public refines class Main {
+	
 	public void createWebHelpBar() {
 		System.out.println("regua main");
 		regua = new SizeButton("Regua");

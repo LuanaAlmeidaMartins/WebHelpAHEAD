@@ -1,0 +1,12 @@
+public refines class ApplySizeButton {
+
+	public void size() {
+		System.out.println("sizeStatus.getButtonID() "+sizeStatus.getButtonID());
+		if(sizeStatus.getButtonID().equals("Paragrafos")) {
+			WebHelpBar.applyButtonStatus.removeFontStyle("margin");
+			WebHelpBar.applyButtonStatus.setFontStyle(sizeStatus.getStyle(),
+					sizeStatus.isActived());
+		}
+		Super().size();
+	}
+}

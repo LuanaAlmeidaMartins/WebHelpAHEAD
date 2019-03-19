@@ -1,4 +1,3 @@
-
 public refines class Main {
 
 	public void createWebHelpBar() {
